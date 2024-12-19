@@ -15,7 +15,7 @@ const Create = () => {
         setIsPending(true)
 
         
-        fetch('https://react-blog-three-orcin.vercel.app/data/db.json',{        
+        fetch('http://localhost:8000/blogs/',{        
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(blog)
