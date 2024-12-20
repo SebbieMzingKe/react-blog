@@ -23,12 +23,6 @@
       "title": "chat gpt response",
       "body": "The error message indicates that there's an issue with destructuring the data property from the result of the useFetch hook because it's null. This could happen if the useFetch hook doesn't return data immediately, which is common with asynchronous operations such as fetching data from an API.\n\nTo handle this error gracefully, you can add a check to ensure that data is not null before destructuring it. Here's how you can modify your code:",
       "author": "sebbie"
-    },
-    {
-      "id": "be0a",
-      "title": "try this  new",
-      "body": "When your React app (deployed on Vercel) tries to fetch data from a different domain (e.g., your hosted JSON server), the server must allow cross-origin requests. If the JSON server does not have CORS enabled, the request will fail.",
-      "author": "sebbie"
     }
   ]
 }
