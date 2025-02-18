@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 const BlogDetails = () => {
 
     const {id } = useParams() 
-    const { data, error, isPending} = useFetch('http://localhost:3000/db.json')
+    const { data, error, isPending} = useFetch('db.json')
     const i = Number(id)
     console.log("id",typeof(i))
     const history = useHistory()
