@@ -13,13 +13,13 @@
       "id": "2"
     },
     {
-      "id": "4425",
+      "id": "3",
       "title": "welcome to prompt engineering",
       "body": "It seems like there's an error because userOne doesn't have a logout() function. Are you working with some sort of user authentication system or object-oriented code where logout() should be defined? If you provide more context, I can assist you further.",
       "author": "sebbie"
     },
     {
-      "id": "d3b8",
+      "id": "4",
       "title": "chat gpt response",
       "body": "The error message indicates that there's an issue with destructuring the data property from the result of the useFetch hook because it's null. This could happen if the useFetch hook doesn't return data immediately, which is common with asynchronous operations such as fetching data from an API.\n\nTo handle this error gracefully, you can add a check to ensure that data is not null before destructuring it. Here's how you can modify your code:",
       "author": "sebbie"
