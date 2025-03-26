@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 
 const Home = () => {
     // const url='http://localhost:8000/blogs'
-    const { data, isPending, error } = useFetch('db.json');
+    const { data, isPending, error } = useFetch('https://chanzublog.onrender.com/blogs');
 
     return (
         <div className="Home">
