@@ -23,6 +23,31 @@
       "title": "chat gpt response",
       "body": "The error message indicates that there's an issue with destructuring the data property from the result of the useFetch hook because it's null. This could happen if the useFetch hook doesn't return data immediately, which is common with asynchronous operations such as fetching data from an API.\n\nTo handle this error gracefully, you can add a check to ensure that data is not null before destructuring it. Here's how you can modify your code:",
       "author": "sebbie"
-    }
+    },
+    {
+  "id": "5",
+  "title": "Understanding React Hooks",
+  "body": "React Hooks have revolutionized functional components by allowing them to manage state and lifecycle events. Introduced in React 16.8, Hooks such as useState and useEffect enable developers to write cleaner and more maintainable code without relying on class components. The useState Hook allows state variables in functional components, while useEffect manages side effects like data fetching, subscriptions, and manual DOM changes.",
+  "author": "sebbie"
+},
+{
+  "id": "6",
+  "title": "Flask vs Django: Which One to Choose?",
+  "body": "Flask and Django are two of the most popular Python web frameworks. Flask is a micro-framework that provides flexibility and simplicity, making it ideal for small to medium projects. Django, on the other hand, follows the 'batteries-included' philosophy, offering built-in features for authentication, ORM, and admin panels. The choice depends on the project needs: Flask is great for lightweight applications, while Django is better suited for complex, feature-rich platforms.",
+  "author": "mzing"
+},
+{
+  "id": "7",
+  "title": "The Future of AI in Healthcare",
+  "body": "Artificial Intelligence (AI) is transforming healthcare by enabling early diagnosis, personalized treatment, and efficient patient management. Machine learning models can analyze medical images, predict disease progression, and optimize hospital resource allocation. Despite its potential, challenges such as data privacy, algorithm bias, and regulatory approvals must be addressed for widespread adoption.",
+  "author": "sebbie"
+},
+{
+  "id": "8",
+  "title": "The Power of Open Source Contributions",
+  "body": "Contributing to open-source projects is one of the best ways to learn, network, and improve coding skills. Platforms like GitHub provide a space for developers to collaborate on projects ranging from small utilities to large-scale software frameworks. By engaging in open-source communities, developers gain real-world experience, receive mentorship, and build a strong portfolio for career growth.",
+  "author": "mzing"
+}
+
   ]
 }
