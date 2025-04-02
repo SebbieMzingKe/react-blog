@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 import Create from "./Create";
+import AuthContext from "./AuthContext";
 
 const Home = () => {
     // const { data: blogs, isPending, error } = useFetch('https://chanzublog.onrender.com/blogs');
+    const { user } = useContext(AuthContext)
     const { data, isPending, error } = useFetch('https://chanzublog.onrender.com/blogs');
     const [showCreate, setShowCreate] = useState(false); // Controls popover visibility
     const [localBlogs, setLocalBlogs] = useState([]); // Local blog state
+
+    const userBlogs = data?.filter(blog => blog.author === user?.email) || [];
+
+    if (!userBlogs || userBlogs.author === 0)
+        return <p>No blogss found for you.</p>
 
     console.log(data,error)
 

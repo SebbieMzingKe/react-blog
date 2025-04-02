@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "./AuthContext";
 
 const Create = ({ addNewBlog }) => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('sebbie');
     const [isPending, setIsPending] = useState(false);
+    const { user } = useContext(AuthContext); // Get token from AuthContext
+
+    console.log("Auth Token", user);
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -12,12 +17,20 @@ const Create = ({ addNewBlog }) => {
 
         setIsPending(true);
 
-        fetch('https://chanzublog.onrender.com/blogs', {        
+        fetch('http://localhost:8000/blogs', {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user}`
+            },
             body: JSON.stringify(blog)
         })
-        .then((res) => res.json()) // Convert response to JSON
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+            return res.json();
+        })
         .then((newBlog) => {
             setIsPending(false);
             addNewBlog(newBlog); // Add new blog to state

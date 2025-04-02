@@ -4,10 +4,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/cjs/rea
 import Create from './Create';
 import BlogDetails from './blogdetails';
 import NotFound from './notfound';
+import PrivateRoute from './PrivateRoute';
+import Login from './Login'
+import { AuthProvider } from './AuthContext';
+import Signup from './SignUp';
 
 function App() {
 
   return (
+    <AuthProvider>
     <Router>
         <div className="App">
         <Navbar />
@@ -16,11 +21,15 @@ function App() {
             <Route exact path = '/' >
               <Home/>
             </Route>
-            <Route path = '/create'>
-              <Create/>
+            <Route path = '/login' >
+              <Login />
             </Route>
-            <Route path = '/blogs/:id'>
-              <BlogDetails/>
+            <Route path = '/signup' >
+              <Signup/>
+            </Route>
+            <Route>
+              <PrivateRoute path = '/create' component={Create} />
+              <PrivateRoute path = '/blogs/:id' component={BlogDetails} />
             </Route>
             <Route path = '*'>
               <NotFound/>
@@ -31,6 +40,7 @@ function App() {
       </div>    
       </div>
     </Router>
+    </AuthProvider>
   );
 }
 
