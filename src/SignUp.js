@@ -17,7 +17,7 @@ const Signup = () => {
             return;
         }
 
-        const response = await fetch("http://localhost:8000/signup", {
+        const response = await fetch("https://chanzublog.onrender.com/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, password }),

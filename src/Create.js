@@ -2,13 +2,16 @@ import { useState, useContext } from "react";
 import AuthContext from "./AuthContext";
 
 const Create = ({ addNewBlog }) => {
+
+    console.log("Create component received addNewBlog:", addNewBlog);
+
+    
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('sebbie');
     const [isPending, setIsPending] = useState(false);
     const { user } = useContext(AuthContext); // Get token from AuthContext
 
-    console.log("Auth Token", user);
     
 
     const handleSubmit = (e) => {
