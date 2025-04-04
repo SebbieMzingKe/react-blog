@@ -1,40 +1,30 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 import Create from "./Create";
-import AuthContext from "./AuthContext";
 
 const Home = ({ localBlogs, addNewBlog }) => {
-  const { user } = useContext(AuthContext);
-  const { data, isPending, error } = useFetch('https://chanzublog.onrender.com/blogs');
-  const [showCreate, setShowCreate] = useState(false);
+    const { data, isPending, error } = useFetch("https://chanzublog.onrender.com/blogs");
+    const [showCreate, setShowCreate] = useState(false);
 
-  const userBlogs = data?.filter(blog => blog.author === user?.email) || [];
+    return (
+        <div className="Home">
+            <button onClick={() => setShowCreate(true)}>+ Add Blog</button>
 
-  if (userBlogs.length === 0 && localBlogs.length === 0) {
-    return <p>No blogs found for you.</p>;
-  }
+            {showCreate && (
+                <div className="overlay">
+                    <div className="popover">
+                        <button className="close-btn" onClick={() => setShowCreate(false)}>X</button>
+                        <Create addNewBlog={addNewBlog} />
+                    </div>
+                </div>
+            )}
 
-  return (
-    <div className="Home">
-      <button onClick={() => setShowCreate(true)}>+ Add Blog</button>
-
-      {showCreate && (
-        <div className="overlay">
-          <div className="popover">
-            <button className="close-btn" onClick={() => setShowCreate(false)}>X</button>
-            <Create addNewBlog={addNewBlog} />
-          </div>
+            {error && <div>{error}</div>}
+            {isPending && <div>Loading...</div>}
+            {data && <BlogList blogs={[...data, ...localBlogs]} title="Your Blogs" />}
         </div>
-      )}
-
-      {error && <div>{error}</div>}
-      {isPending && <div>Loading...</div>}
-      {(userBlogs.length > 0 || localBlogs.length > 0) && (
-        <BlogList blogs={[...userBlogs, ...localBlogs]} title="Your Blogs" />
-      )}
-    </div>
-  );
+    );
 };
 
 export default Home;

@@ -20,7 +20,7 @@ const Login = () => {
         const data = await response.json();
         if (data.token) {
             localStorage.setItem("token", data.token);
-            login(data.token);
+            login(data.token, email); // Pass email to login
             history.push("/");
         } else {
             alert("Invalid credentials");
@@ -33,10 +33,8 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <label>Email:</label>
                 <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-
                 <label>Password:</label>
                 <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-
                 <button type="submit">Login</button>
             </form>
             <p>Don't have an account? <a href="/signup">Sign Up</a></p>
