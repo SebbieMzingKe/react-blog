@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { AuthProvider } from '@/contexts/AuthContext';
 import Navbar from '@/components/Navbar';
+import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -23,6 +24,30 @@ export default function RootLayout({
               {children}
             </div>
           </div>
+          <Toaster 
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+              },
+              success: {
+                duration: 3000,
+                iconTheme: {
+                  primary: '#10b981',
+                  secondary: '#fff',
+                },
+              },
+              error: {
+                duration: 4000,
+                iconTheme: {
+                  primary: '#ef4444',
+                  secondary: '#fff',
+                },
+              },
+            }}
+          />
         </AuthProvider>
       </body>
     </html>
